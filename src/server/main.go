@@ -1,12 +1,12 @@
-package server
+package main
 
 import (
-	"github.com/julienschmidt/httprouter"
 	"Main-Project-1-Go/src/global"
+	"github.com/julienschmidt/httprouter"
 	"net/http"
 )
 
-func main(){
+func main() {
 	router := httprouter.New()
 	router.GlobalOPTIONS = http.HandlerFunc(HandleCORS)
 
@@ -15,8 +15,7 @@ func main(){
 	}
 }
 
-
-func HandleCORS(w http.ResponseWriter, r *http.Request){
+func HandleCORS(w http.ResponseWriter, r *http.Request) {
 	if r.Header.Get("Access-Control-Request-Method") != "" {
 		// Set CORS headers
 
